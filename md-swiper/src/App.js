@@ -2,30 +2,29 @@ import { React, Component } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import styled from '@emotion/styled';
-import ReactMarkdown from 'react-markdown';
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import './App.css';
+import markdownrender from './markdownrender';
 
 class App extends Component {
     render() {
         SwiperCore.use([Navigation, Pagination, Autoplay]);
+        /**
         const MarkdownStyle = styled.div`
           font-size: 1em;
           line-height: 2.5rem;
         `;
 
-        const mdEx = `
-          **안녕하세용**
+        const mdText = `
+          **hi**
         `;
-
+        const htmltext = marked(mdText)
+        **/
         return(
             <div className="App">
-              <MarkdownStyle>
-                <ReactMarkdown>{mdEx}</ReactMarkdown>
-              </MarkdownStyle>
-
+              {markdownrender()}
               {/* <Swiper
                       className="project-swiper"
                       spaceBetween={500}
@@ -38,6 +37,7 @@ class App extends Component {
                   <SwiperSlide>Hid</SwiperSlide>
                   <SwiperSlide>Hidd</SwiperSlide>
               </Swiper> */}
+              
             </div>
         );
     }
